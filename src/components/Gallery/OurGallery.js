@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Isotope from "isotope-layout";
 
 import i1 from "../../assets/images/page5_gall1_small_img1-512x512.jpg";
 import i2 from "../../assets/images/page5_gall1_small_img2-512x512.jpg";
@@ -10,6 +11,27 @@ import i7 from "../../assets/images/page5_gall1_small_img7-512x512.jpg";
 import i8 from "../../assets/images/page5_gall1_small_img8-512x512.jpg";
 
 const OurGallery = () => {
+  const [isotope, setIsotope] = useState(null);
+
+  useEffect(() => {
+    setTimeout(
+      () =>
+        setIsotope(
+          (new Isotope(".isotope", {
+            itemSelector: ".isotope-item",
+            layoutMode: "masonry",
+            transitionDuration: "0.8s",
+            filter: "*",
+          }).element.className += " isotope--loaded")
+        ),
+      200
+    );
+  }, []);
+  useEffect(() => {
+    if (isotope) {
+      console.log("debugger");
+    }
+  }, [isotope]);
   return (
     <section className="section section-xl bg-gray-100">
       <div className="container-fluid isotope-custom-2">
