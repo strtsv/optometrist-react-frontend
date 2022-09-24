@@ -7,8 +7,7 @@ import i1 from "../assets/images/logo-default-255x47.png";
 import i2 from "../assets/images/logo-inverse-255x47.png";
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     $(document).ready(function() {
       new WOW().init();
       $(".rd-navbar").TMStickUp({});
